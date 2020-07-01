@@ -10,6 +10,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.css';
 import PlayField from '../src/components/PlayField'
 import TopNav from '../src/components/TopNav'
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
        </Route>
        <Route path="/youtube/audio">
         <div>D</div>
+       </Route>
+       <Route path="/myprofile">
+        <Profile/>
        </Route>
      </Switch>
      </div>

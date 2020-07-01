@@ -22,15 +22,15 @@ class TopNav extends React.Component {
 
                         document.getElementById('userprofilebtn').style.backgroundColor="black";
                         document.getElementById('userprofilebtn').style.color="white";
-                    }} id="audiosbtn" className="topnavbtn">Audios</button></Link></div>
+                    }} id="audiosbtn" className="topnavbtn">Listen!</button></Link></div>
                     <div className="col-sm-4"></div>
-                    <div className="col-sm-3" align="right"><Link to="/userprofile"><button onClick={(e)=>{
+                    <div className="col-sm-3" align="right"><Link to="/myprofile"><button onClick={(e)=>{
                         e.target.style.backgroundColor='white';
                         e.target.style.color='black';
 
                         document.getElementById('audiosbtn').style.backgroundColor="black";
                         document.getElementById('audiosbtn').style.color="white";
-                    }} id="userprofilebtn" className="topnavbtn">My Profile</button></Link></div>
+                    }} id="userprofilebtn" className="topnavbtn">Developer Info.</button></Link></div>
                 </div>
             
         )
