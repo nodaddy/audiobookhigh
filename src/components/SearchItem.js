@@ -21,7 +21,7 @@ class SearchItem extends React.Component {
         uploadedBy(channel),
     */}
 
-    var ifrm = `<h6>Audiobook</h6><div style="background-color:black;padding:10px;"><p style="font-size:14px;border-radius:5px;background-color:black;color:white;border:1px solid black;"><span style="color:rgb(52, 201, 52)"> Playing: </span>` + this.props.title + `</p>`+
+    var ifrm = `<h6>Audiobook</h6>`+
     `<iframe id="` + `embed${this.props.id}` +`" style="width:100%;"`+
      `src="` + `https://www.youtube.com/embed/${this.props.id}?vq=small&cc_lang_pref=an&cc_load_policy=1&autoplay=1` + `" `+
      `frameborder='0' `+

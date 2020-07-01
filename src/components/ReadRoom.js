@@ -17,7 +17,7 @@ class ReadRoom extends React.Component {
 
     render(){
         return(
-            <div className='col-sm-12' style={{height:'100vh'}}>
+            <div className='col-sm-12' style={{border:'1px solid black',height:'100vh'}}>
                  <div className="row">
                      <div className="col-sm-12">
                      <h6>Dictionary</h6>
