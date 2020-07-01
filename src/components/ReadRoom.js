@@ -72,7 +72,7 @@ class ReadRoom extends React.Component {
                     document.getElementById(`searchitem${this.props.id}`).style.backgroundColor='white';
                     document.getElementById(`searchitem${this.props.id}`).style.color='black';
                     
-                }}>Close this audiobook</button></a>
+                }}>X</button></a>
 
                 </div>
                 <div className="col-sm-3">
