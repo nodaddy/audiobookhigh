@@ -163,14 +163,14 @@ class ReadRoom extends React.Component {
                         <div className="col-sm-12">
                 <div className="row">
                 <input type="text" className="textareas" id={`notetitle${this.props.id}`}  
-                   placeholder="Title of notes"></input>
+                   placeholder="Title of notes (type here) ..."></input>
                    </div>
                    <div className="row">
                     <textarea className="textareas" id={`notetextarea${this.props.id}`} style={{height:'50vh', width:'100%'}} 
                     onChange={()=>{
                         //save notes in the data base
                     }}
-                    placeholder="Make notes"></textarea>
+                    placeholder="Make notes (type here) ..."></textarea>
                     </div>
                 </div>
                 </div>
