@@ -101,7 +101,7 @@ class YoutubeAudio extends React.Component {
                 
                        {
                             this.state.showResults == true ? 
-                            <div id="searchhead" align="center" className="container">Showing results for <span style={{backgroundColor:'rgb(52, 201, 52)', padding:'5px'}}>{this.state.currentQuery}</span><br/><br/></div>:<div></div>
+                            <div id="searchhead" align="center" className="container">Showing results for <span style={{backgroundColor:'rgb(52, 201, 52)', padding:'5px'}}>{this.state.currentQuery}</span><hr/><br/></div>:<div></div>
                         }
                   
                         {

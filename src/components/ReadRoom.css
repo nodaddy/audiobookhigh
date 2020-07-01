@@ -1,7 +1,13 @@
 .textareas:focus{
     outline:none;
 } 
-
+.textareas{
+  border:0px;
+  background-color: white;
+  color:black;
+  padding:10px;
+  font-size:12px;
+}
 button{
   color:black;
   background-color:white;

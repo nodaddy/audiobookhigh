@@ -48,13 +48,7 @@ class SearchItem extends React.Component {
             </a>
 
             <div id={`${this.props.cover}`} style={{height:'100vh', paddingTop:'5px', border:'0px solid black', display:'none'}}>
-                <a align="right" href={`#${this.props.id}`}><button id="closebook" onClick={()=>{
-                    document.getElementById(`view${this.props.id}`).innerHTML = 'Loading ...';
-                    document.getElementById(`${this.props.cover}`).style.display = 'none';
-                    document.getElementById(`searchitem${this.props.id}`).style.backgroundColor='white';
-                    document.getElementById(`searchitem${this.props.id}`).style.color='black';
-                    
-                }}>Close this audiobook</button></a><br/><br/>
+                
             <ReadRoom cover={this.props.cover} title={this.props.title} id={this.props.id} />
             </div>
          

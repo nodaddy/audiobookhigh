@@ -4,6 +4,7 @@ import axios from 'axios'
  
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import { black } from 'color-name';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 class ReadRoom extends React.Component {
@@ -16,26 +17,23 @@ class ReadRoom extends React.Component {
 
     render(){
         return(
-            <div className='col-sm-12' style={{height:'100%'}}>
+            <div className='col-sm-12' style={{height:'100vh'}}>
                  <div className="row">
                      <div className="col-sm-12">
                      <h6>Dictionary</h6>
                      <div className="row" style={{marginBottom:'10px'}}>
                          <div className="col-sm-3">
-                     <input align="center" id={`englishword${this.props.id}`} style={{ marginBottom:'10px',padding:'7px',width:'100%',border:'0px', backgroundColor:'black', color:'white'}}>
+                     <input align="center"  id={`englishword${this.props.id}`} style={{ marginBottom:'10px',padding:'7px',width:'100%',border:'0px', backgroundColor:'black', color:'white'}}>
                          
                          </input><br/>
-               </div>
-               
-               <div className="col-sm-3">
-                   <div className="row">
-                <button style={{border:'1px solid black', borderRadius:'5px'}} onClick={()=>{
+                         <button style={{border:'1px solid black', borderRadius:'5px'}} onClick={()=>{
                     document.getElementById(`nounload${this.props.id}`).style.display = 'block'; 
                  
                      document.getElementById(`dictionary${this.props.id}`).style.display='block';
                      
                   axios.get(`https://api.dictionaryapi.dev/api/v1/entries/en/${document.getElementById(`englishword${this.props.id}`).value}`)
                     .then(response => {
+                      
                         this.setState({showDicRes:true, dictioanryRes:response});
                         //console.log(this.state.showDicRes);
                       //  console.log(JSON.stringify(this.state.dictioanryRes.data[0].meaning, null, "\t"));
@@ -47,7 +45,12 @@ class ReadRoom extends React.Component {
                       document.getElementById(`nounload${this.props.id}`).style.display = 'none'; 
                      document.getElementById(`dictionary${this.props.id}`).style.display='none';
                     });
-                }}>Search</button></div>
+                }}>Search Word</button>
+               </div>
+               
+               <div className="col-sm-3">
+                   <div className="row">
+                </div>
 
                 </div>
                 <div className="col-sm-1"><span align="center" style={{
@@ -62,8 +65,38 @@ class ReadRoom extends React.Component {
                                    
                                   
                                 }} id={`nounload${this.props.id}`}></span></div>
+                <div className="col-sm-2">
+                <a align="right" href={`#${this.props.id}`}><button style={{color:'black', backgroundColor:'white'}} id="closebook" onClick={()=>{
+                    document.getElementById(`view${this.props.id}`).innerHTML = 'Loading ...';
+                    document.getElementById(`${this.props.cover}`).style.display = 'none';
+                    document.getElementById(`searchitem${this.props.id}`).style.backgroundColor='white';
+                    document.getElementById(`searchitem${this.props.id}`).style.color='black';
+                    
+                }}>Close this audiobook</button></a>
 
-                <div className="col-sm-5"></div>
+                </div>
+                <div className="col-sm-3">
+                <button style={{backgroundColor:'black',color:'white'}} onClick={()=>{
+                        var date = new Date();
+                        var localeDate = date.toLocaleDateString();
+                     var note = {
+                         content:[
+                                {
+                                    text:document.getElementById(`notetitle${this.props.id}`).value,
+                                    fontSize:20,
+                                    bold:true 
+                                },
+                                localeDate
+                                ,
+                                " ",
+                                document.getElementById(`notetextarea${this.props.id}`).value
+                         ]
+                     }
+                     pdfMake.createPdf(note).download();
+                     console.log(document.getElementById(`notetextarea${this.props.id}`).value);
+                    }}>Download notes</button>
+                    
+                </div>
                 </div>
                 <div className="row" align="left" id={`dictionary${this.props.id}`} 
                 style={{zIndex:'999999',
@@ -111,7 +144,7 @@ class ReadRoom extends React.Component {
                      </div>
                  </div>
                  
-                  <div className="row" style={{height:'70%'}}>   
+                  <div className="row" style={{height:'auto'}}>   
                 <div className="col-sm-3" id={`view${this.props.id}`}>
 <br/>            
                
@@ -124,15 +157,16 @@ class ReadRoom extends React.Component {
                 
               
 
-                <div className="col-sm-9" id="notes">
+                <div className="col-sm-9" id="notes" style={{height:'auto',border:'1px solid black', borderRadius:'5px'}}>
+                    <div className="row" style={{paddingLeft:'10px'}}>Notes</div>
                     <div className="row">
                         <div className="col-sm-12">
                 <div className="row">
-                <input type="text" className="textareas" id={`notetitle${this.props.id}`} style={{padding:'10px' , fontSize:'12px',backgroundColor:'black', width:'100%', color:'white'}} 
+                <input type="text" className="textareas" id={`notetitle${this.props.id}`}  
                    placeholder="Title of notes"></input>
                    </div>
                    <div className="row">
-                    <textarea className="textareas" id={`notetextarea${this.props.id}`} style={{padding:'10px' , fontSize:'12px',backgroundColor:'black', width:'100%', color:'white',height:'60vh'}} 
+                    <textarea className="textareas" id={`notetextarea${this.props.id}`} style={{height:'50vh', width:'100%'}} 
                     onChange={()=>{
                         //save notes in the data base
                     }}
@@ -140,47 +174,7 @@ class ReadRoom extends React.Component {
                     </div>
                 </div>
                 </div>
-                <div className="row" align="left" style={{
-                      marginTop:'10px',
-                      border:'1px solid black',
-                      backgroundColor:'black'
-                      
-                    }}>
-                    <div align="left" className="col-sm-6">
-                    <div className="row">
-                    <button onClick={()=>{
-                        var date = new Date();
-                        var localeDate = date.toLocaleDateString();
-                     var note = {
-                         content:[
-                                {
-                                    text:document.getElementById(`notetitle${this.props.id}`).value,
-                                    fontSize:20,
-                                    bold:true 
-                                },
-                                localeDate
-                                ,
-                                " ",
-                                document.getElementById(`notetextarea${this.props.id}`).value
-                         ]
-                     }
-                     pdfMake.createPdf(note).download();
-                     console.log(document.getElementById(`notetextarea${this.props.id}`).value);
-                    }}>Download notes</button>
-
-                    </div>
-                    </div>
-
-                    <div align="right" className="col-sm-6">
-                        <div className="row">
-                    <button style={{margin:'0px'}} onClick={()=>{
-                     //jgf  
-                    }}>Ag</button>
-                    </div>
-                    </div>
-
-                     
-                </div>
+              
                 </div>
                 </div>
  
