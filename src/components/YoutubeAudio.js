@@ -44,7 +44,7 @@ class YoutubeAudio extends React.Component {
                            var key2 = 'AIzaSyDbFRSu_mnSfK3sUBm5nBrNx09jdxjyiTo';
                            var key3 = 'AIzaSyBAqZUlLZhjd6-XsAC_G8VZl8CMjlUg5EQ';
                            //you can make a key per project on google
-                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key2}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
+                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key3}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
                         then((res)=>{
                             this.setState({searchResults:res.data.items});
                             console.log(this.state.searchResults[0]);
