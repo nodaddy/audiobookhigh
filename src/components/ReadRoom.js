@@ -41,7 +41,7 @@ class ReadRoom extends React.Component {
                     })
                     .catch(err => {
                         console.log(err);
-                        alert('sorry! could not find the word');
+                        alert(err);
                       document.getElementById(`nounload${this.props.id}`).style.display = 'none'; 
                      document.getElementById(`dictionary${this.props.id}`).style.display='none';
                     });
@@ -157,7 +157,7 @@ class ReadRoom extends React.Component {
                 
               
 
-                <div className="col-sm-9" id="notes" style={{height:'auto',border:'1px solid black', borderRadius:'5px'}}>
+                <div className="col-sm-9" id="notes" style={{height:'auto', borderRadius:'5px'}}>
                     <div className="row" style={{paddingLeft:'10px'}}>Notes</div>
                     <div className="row">
                         <div className="col-sm-12">
