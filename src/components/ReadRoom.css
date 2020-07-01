@@ -1,0 +1,22 @@
+.textareas:focus{
+    outline:none;
+} 
+
+button{
+  color:black;
+  background-color:white;
+  border-radius:5px;
+  border:1px solid black;
+  padding:5px;
+  width:100%;
+}
+
+
+.closedict:hover{
+    background-color: black;
+    color:white;
+}
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

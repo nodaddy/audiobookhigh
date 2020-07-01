@@ -1,0 +1,14 @@
+ .searchitem:hover{
+     background-color: lightgray;
+     cursor: pointer;
+ }
+ #closebook:hover{
+    background-color: white;
+    cursor: pointer;
+    color:black;
+ }
+ #closebook{
+    border-radius: 5px;
+    background-color: black;
+    color:white;
+}
