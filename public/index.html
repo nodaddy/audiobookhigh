@@ -27,7 +27,17 @@
     -->
     <title>React App</title>
   </head>
+<style>
+  @media only screen and (max-width: 479px) {
+    #body{ display: none !important; }
+    #rd{
+      display: block !important;
+    }
+ }
+</style>
   <body>
+    <h4 id="rd" style="display:none;">Rotate your device</h4>
+    <div id="body">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -40,6 +50,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+</div>
 
     <script src="https://apis.google.com/js/api.js"></script>
   </body>
