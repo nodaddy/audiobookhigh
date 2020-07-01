@@ -5,7 +5,7 @@ class OurLibrary extends React.Component {
     render(){
         return(
              
-               <div id="ol" style={{display:'none'}}>OurLibrary</div>
+               <div id="ol" style={{display:'none'}}>Coming soon ...</div>
             
         )
     }

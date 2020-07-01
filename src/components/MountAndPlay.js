@@ -5,7 +5,7 @@ class MountAndPlay extends React.Component {
     render(){
         return(
              
-               <div id="mount" style={{display:'none'}}>MountAndPlay</div>
+               <div id="mount" style={{display:'none'}}>Coming soon ...</div>
             
         )
     }

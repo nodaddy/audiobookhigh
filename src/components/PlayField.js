@@ -92,7 +92,7 @@ class PlayField extends React.Component {
                             document.getElementById('yt').style.display='none';
                             document.getElementById('ol').style.display='none';
                             document.getElementById('mount').style.display='block';
-                        }}> Identity Card</button>
+                        }}>My bookshelf</button>
                             </td>
                         </tr>
                     </table>
