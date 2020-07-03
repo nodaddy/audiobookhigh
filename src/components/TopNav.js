@@ -7,15 +7,15 @@ class TopNav extends React.Component {
     render(){
         return(
              
-                <div className="row" style={{padding:'10px', backgroundColor:'black', color:'white', borderRadius:'0px'}}>
-                    <div className="col-sm-2"><Link to="/"><button onClick={(e)=>{
+                <div className="row" align="left" style={{padding:'10px', backgroundColor:'black', color:'white', borderRadius:'0px'}}>
+                    <div className="col-sm-2" align="left"><Link to="/"><button align="left" onClick={(e)=>{
 
                         document.getElementById('userprofilebtn').style.backgroundColor="black";
                         document.getElementById('userprofilebtn').style.color="white";
 
                         document.getElementById('audiosbtn').style.backgroundColor="black";
                         document.getElementById('audiosbtn').style.color="white";
-                    }} id="topnavlogo">SWEET CREATURE <sub></sub></button></Link></div>
+                    }} id="topnavlogo">SWEET CREATURE <sub>beta</sub></button></Link></div>
                     <div className="col-sm-3"><Link to="/playfield"><button onClick={(e)=>{
                         e.target.style.backgroundColor='white';
                         e.target.style.color='black';
