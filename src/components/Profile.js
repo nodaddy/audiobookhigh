@@ -4,10 +4,10 @@ import './OurLibrary.css'
 class Profile extends React.Component {
     render(){
         return(
-             <div className="container" align="center">
+             <div className="container-fluid" style={{padding:'20px'}} align="right">
                  <div className="col-sm-12">
-                     <br/>
-                    <h4>Neelesh Sharma</h4>
+                  
+                    <h5>Neelesh Sharma</h5>
                     Bachelor of Technology, <br/>
                     Production and Industrial Engineering(Mechanical and Industrial Department),<br/>
                     IIT Roorkee, Uttarakhand, India<br/><br/>

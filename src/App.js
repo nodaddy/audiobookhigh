@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import PlayField from '../src/components/PlayField'
 import TopNav from '../src/components/TopNav'
 import Profile from './components/Profile';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
        <div className="container-fluid">
        <TopNav/>
       <Switch>
-      <Route path="/playfield">
+      <Route exact path="/">
+        <Home/>
+       </Route>
+       <Route path="/playfield">
         <PlayField/>
        </Route>
        <Route path="/youtube/audio">
