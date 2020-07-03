@@ -45,7 +45,7 @@ class YoutubeAudio extends React.Component {
                            var key3 = 'AIzaSyBAqZUlLZhjd6-XsAC_G8VZl8CMjlUg5EQ';
                            var key4 = 'AIzaSyCwCELAl5ayVwe58u8czZA_aRI32GPYNYo';
                            //you can make a key per project on google
-                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key3}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
+                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key1}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
                         then((res)=>{
                             console.log(res);
                             this.setState({searchResults:res.data.items});
@@ -80,7 +80,7 @@ class YoutubeAudio extends React.Component {
                            var key3 = 'AIzaSyBAqZUlLZhjd6-XsAC_G8VZl8CMjlUg5EQ';
                            var key4 = 'AIzaSyCwCELAl5ayVwe58u8czZA_aRI32GPYNYo';
                            //you can make a key per project on google
-                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key3}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
+                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key1}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
                         then((res)=>{
                             this.setState({searchResults:res.data.items});
                             console.log(this.state.searchResults[0]);
