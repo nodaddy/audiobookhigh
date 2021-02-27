@@ -40,7 +40,7 @@ class SearchItem extends React.Component {
                document.getElementById(`view${this.props.id}`).innerHTML= ifrm;
                
             }} id={`searchitem${this.props.id}`} style={{backgroundColor:'white', color:'black',borderRadius:'5px', padding:'0px', marginBottom:'0px'}}>
-                <div className="col-sm-2"><img src={this.props.cover} style={{width:'40%', backgroundColor:'white', border:'0px solid black', borderRadius:'0px',padding:'3px'}}></img></div>
+                <div className="col-sm-2"><img src={this.props.cover} style={{width:'70%', backgroundColor:'white', border:'0px solid black', borderRadius:'0px',padding:'3px'}}></img></div>
                 <div className="col-sm-6" align="left" style={{paddingTop:'5px'}}><span style={{color:'rgb(52, 201, 52)'}}>Title:  </span>{this.props.title}</div>
                 <div className="col-sm-1" style={{paddingTop:'5px'}}></div>
                 <div className="col-sm-3" align="left" style={{paddingTop:'5px'}}><span style={{color:'rgb(52, 201, 52)'}}>From: </span>{this.props.uploadedBy}</div>

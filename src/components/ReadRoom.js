@@ -17,7 +17,7 @@ class ReadRoom extends React.Component {
 
     render(){
         return(
-            <div className='col-sm-12' style={{border:'1px solid black',height:'100vh'}}>
+            <div className='col-sm-12' style={{border:'0px solid black',height:'95vh'}}>
                  <div className="row">
                      <div className="col-sm-12">
                      <h6>Dictionary</h6>
@@ -27,24 +27,27 @@ class ReadRoom extends React.Component {
                          
                          </input><br/>
                          <button style={{border:'1px solid black', borderRadius:'5px'}} onClick={()=>{
+                     
+                  if(document.getElementById(`englishword${this.props.id}`).value != ""){
                     document.getElementById(`nounload${this.props.id}`).style.display = 'block'; 
                  
-                     document.getElementById(`dictionary${this.props.id}`).style.display='block';
-                     
+                    document.getElementById(`dictionary${this.props.id}`).style.display='block';
                   axios.get(`https://api.dictionaryapi.dev/api/v1/entries/en/${document.getElementById(`englishword${this.props.id}`).value}`)
                     .then(response => {
                       
                         this.setState({showDicRes:true, dictioanryRes:response});
                         //console.log(this.state.showDicRes);
-                      //  console.log(JSON.stringify(this.state.dictioanryRes.data[0].meaning, null, "\t"));
+                        //  console.log(JSON.stringify(this.state.dictioanryRes.data[0].meaning, null, "\t"));
                        // this.setState({showDicRes:true});
                     })
                     .catch(err => {
-                        console.log(err);
-                        alert(err);
-                      document.getElementById(`nounload${this.props.id}`).style.display = 'none'; 
-                     document.getElementById(`dictionary${this.props.id}`).style.display='none';
-                    });
+                    console.log(err);
+                    alert(err);
+                    document.getElementById(`nounload${this.props.id}`).style.display = 'none'; 
+                    document.getElementById(`dictionary${this.props.id}`).style.display='none';
+                    })} else {
+                        alert("oh! search text-box is empty! Kahan dhyan hai?")
+                    }
                 }}>Search Word</button>
                </div>
                
@@ -72,7 +75,7 @@ class ReadRoom extends React.Component {
                     document.getElementById(`searchitem${this.props.id}`).style.backgroundColor='white';
                     document.getElementById(`searchitem${this.props.id}`).style.color='black';
                     
-                }}>X</button></a>
+                }}>Close</button></a>
 
                 </div>
                 <div className="col-sm-3">
@@ -110,7 +113,7 @@ class ReadRoom extends React.Component {
                 fontSize:'11px',
                 display:'none',
                 overflow:'scroll'}}>
-                <button className="closedict" style={{border:'1px solid black'}} onClick={()=>{
+                <button className="closedict" style={{border:'1px solid black', position:'absolute', zIndex:'9999', right:'5px', width:'auto', color:'white', backgroundColor:'black'}} onClick={()=>{
                         document.getElementById(`dictionary${this.props.id}`).style.display='none';
                         this.setState({showDicRes:false});
                     }}> Close dictionary</button>
@@ -147,26 +150,21 @@ class ReadRoom extends React.Component {
                   <div className="row" style={{height:'auto'}}>   
                 <div className="col-sm-3" id={`view${this.props.id}`}>
 <br/>            
-               
-                 
-
-                    
-                    
-                   
+                
                 </div>
                 
               
 
                 <div className="col-sm-9" id="notes" style={{height:'auto', borderRadius:'5px'}}>
-                    <div className="row" style={{paddingLeft:'10px'}}>Notes</div>
+                    <br/>
                     <div className="row">
-                        <div className="col-sm-12">
+                    <div className="col-sm-12">
                 <div className="row">
-                <input type="text" className="textareas" id={`notetitle${this.props.id}`}  
+                <input type="text" className="textareas" style={{backgroundColor:'antiquewhite'}} id={`notetitle${this.props.id}`}  
                    placeholder="Heading (type here) ..."></input>
-                   </div>
+                   </div> 
                    <div className="row">
-                    <textarea className="textareas" id={`notetextarea${this.props.id}`} style={{height:'50vh', width:'100%'}} 
+                    <textarea className="textareas" id={`notetextarea${this.props.id}`} style={{height:'60vh', marginTop:'5px', width:'100%', backgroundColor:'antiquewhite'}} 
                     onChange={()=>{
                         //save notes in the data base
                     }}

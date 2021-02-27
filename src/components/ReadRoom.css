@@ -19,8 +19,8 @@ button{
 
 
 .closedict:hover{
-    background-color: black;
-    color:white;
+    background-color: white !important;
+    color:black !important;
 }
   @keyframes spin {
     0% { transform: rotate(0deg); }

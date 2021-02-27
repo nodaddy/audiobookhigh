@@ -13,6 +13,8 @@ class Profile extends React.Component {
                     IIT Roorkee, Uttarakhand, India<br/><br/>
                     <h5>Contact Details:</h5>
                     +91 9870938860 <br/>
+                    <a href="https://github.com/nodaddy">My github</a>
+                    <br/>
                     <a href="https://www.linkedin.com/in/neelesh-sharma-6178971aa/">My linkedIn profile</a>
                  </div>
              </div>
