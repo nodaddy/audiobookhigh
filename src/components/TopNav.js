@@ -15,14 +15,14 @@ class TopNav extends React.Component {
 
                         document.getElementById('audiosbtn').style.backgroundColor="black";
                         document.getElementById('audiosbtn').style.color="white";
-                    }} id="topnavlogo">SWEET CREATURE <sub>beta</sub></button></Link></div>
+                    }} id="topnavlogo">audiobookHigh <sub>beta</sub></button></Link></div>
                     <div className="col-sm-3"><Link to="/playfield"><button onClick={(e)=>{
                         e.target.style.backgroundColor='white';
                         e.target.style.color='black';
 
                         document.getElementById('userprofilebtn').style.backgroundColor="black";
                         document.getElementById('userprofilebtn').style.color="white";
-                    }} id="audiosbtn" className="topnavbtn">Listen!</button></Link></div>
+                    }} id="audiosbtn" className="topnavbtn">Read some</button></Link></div>
                     <div className="col-sm-4"></div>
                     <div className="col-sm-3" align="right"><Link to="/myprofile"><button onClick={(e)=>{
                         e.target.style.backgroundColor='white';

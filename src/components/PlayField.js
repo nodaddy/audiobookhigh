@@ -46,7 +46,7 @@ class PlayField extends React.Component {
                             document.getElementById('yt').style.display='block';
                             document.getElementById('ol').style.display='none';
                             document.getElementById('mount').style.display='none';
-                        }}> Search Audiobooks</button>
+                        }}> Explore</button>
                             </td>
 
                             <td style={{paddingRight:'15px'}}>
