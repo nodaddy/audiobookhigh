@@ -23,10 +23,10 @@ class ReadRoom extends React.Component {
                      <h6>Dictionary</h6>
                      <div className="row" style={{marginBottom:'10px'}}>
                          <div className="col-sm-3">
-                     <input align="center"  id={`englishword${this.props.id}`} style={{ marginBottom:'10px',padding:'7px',width:'100%',border:'0px', backgroundColor:'black', color:'white'}}>
+                     <input placeholder="type here ..." align="center"  id={`englishword${this.props.id}`} style={{ marginBottom:'10px',padding:'7px',width:'100%',border:'0px', backgroundColor:'antiquewhite', color:'black'}}>
                          
                          </input><br/>
-                         <button style={{border:'1px solid black', borderRadius:'5px'}} onClick={()=>{
+                         <button style={{backgroundColor:'#096dd9',color:'white', border:'0px'}} onClick={()=>{
                      
                   if(document.getElementById(`englishword${this.props.id}`).value != ""){
                     document.getElementById(`nounload${this.props.id}`).style.display = 'block'; 
@@ -69,37 +69,17 @@ class ReadRoom extends React.Component {
                                   
                                 }} id={`nounload${this.props.id}`}></span></div>
                 <div className="col-sm-2">
-                <a align="right" href={`#${this.props.id}`}><button style={{color:'black', backgroundColor:'white'}} id="closebook" onClick={()=>{
+                </div>
+                <div className="col-sm-3" align="right">
+                <a align="right" href={`#${this.props.id}`}><button style={{color:'white', backgroundColor:'black', color:'white', border:'0px', width:'auto', paddingLeft:'10px', paddingRight:'10px'}} id="closebook" onClick={()=>{
                     document.getElementById(`view${this.props.id}`).innerHTML = 'Loading ...';
                     document.getElementById(`${this.props.cover}`).style.display = 'none';
                     document.getElementById(`searchitem${this.props.id}`).style.backgroundColor='white';
                     document.getElementById(`searchitem${this.props.id}`).style.color='black';
                     
-                }}>Close</button></a>
+                }}>Close audiobook</button></a>
 
-                </div>
-                <div className="col-sm-3">
-                <button style={{backgroundColor:'black',color:'white'}} onClick={()=>{
-                        var date = new Date();
-                        var localeDate = date.toLocaleDateString();
-                     var note = {
-                         content:[
-                                {
-                                    text:document.getElementById(`notetitle${this.props.id}`).value,
-                                    fontSize:20,
-                                    bold:true 
-                                },
-                                localeDate
-                                ,
-                                " ",
-                                document.getElementById(`notetextarea${this.props.id}`).value
-                         ]
-                     }
-                     pdfMake.createPdf(note).download();
-                     console.log(document.getElementById(`notetextarea${this.props.id}`).value);
-                    }}>Download notes</button>
-                    
-                </div>
+                </div> 
                 </div>
                 <div className="row" align="left" id={`dictionary${this.props.id}`} 
                 style={{zIndex:'999999',
@@ -156,19 +136,44 @@ class ReadRoom extends React.Component {
               
 
                 <div className="col-sm-9" id="notes" style={{height:'auto', borderRadius:'5px'}}>
-                    <br/>
+                    <div>Notes</div>
                     <div className="row">
                     <div className="col-sm-12">
                 <div className="row">
-                <input type="text" className="textareas" style={{backgroundColor:'antiquewhite'}} id={`notetitle${this.props.id}`}  
+                <div className="col-sm-9" align="left">
+                <input type="text" className="textareas" style={{backgroundColor:'antiquewhite', width:'100%'}} id={`notetitle${this.props.id}`}  
                    placeholder="Heading (type here) ..."></input>
+                   </div>
+                   <div className="col-sm-3" align="right">
+                   <button style={{backgroundColor:'#096dd9',color:'white', border:'0px', width:'100%'}} onClick={()=>{
+                        var date = new Date();
+                        var localeDate = date.toLocaleDateString();
+                     var note = {
+                         content:[
+                                {
+                                    text:document.getElementById(`notetitle${this.props.id}`).value,
+                                    fontSize:20,
+                                    bold:true 
+                                },
+                                localeDate
+                                ,
+                                " ",
+                                document.getElementById(`notetextarea${this.props.id}`).value
+                         ]
+                     }
+                     pdfMake.createPdf(note).download();
+                     console.log(document.getElementById(`notetextarea${this.props.id}`).value);
+                    }}>Download notes</button>
+                   </div>
                    </div> 
                    <div className="row">
+                <div className="col-sm-12">
                     <textarea className="textareas" id={`notetextarea${this.props.id}`} style={{height:'60vh', marginTop:'5px', width:'100%', backgroundColor:'antiquewhite'}} 
                     onChange={()=>{
                         //save notes in the data base
                     }}
                     placeholder="Take notes (type here) ..."></textarea>
+                    </div>
                     </div>
                 </div>
                 </div>

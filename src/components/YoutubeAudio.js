@@ -1,7 +1,7 @@
 import React from 'react'
 import './YoutubeAudio.css'
 import axios from 'axios'
-import SearchItem from './SearchItem';
+import SearchItem from './SearchItem'; 
 import {
     BrowserRouter as Router,
     Route,
@@ -45,7 +45,7 @@ class YoutubeAudio extends React.Component {
                            var key3 = 'AIzaSyBAqZUlLZhjd6-XsAC_G8VZl8CMjlUg5EQ';
                            var key4 = 'AIzaSyCwCELAl5ayVwe58u8czZA_aRI32GPYNYo';
                            //you can make a key per project on google
-                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key2}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
+                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key4}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
                         then((res)=>{
                             console.log(res);
                             this.setState({searchResults:res.data.items});
@@ -80,7 +80,7 @@ class YoutubeAudio extends React.Component {
                            var key3 = 'AIzaSyBAqZUlLZhjd6-XsAC_G8VZl8CMjlUg5EQ';
                            var key4 = 'AIzaSyCwCELAl5ayVwe58u8czZA_aRI32GPYNYo';
                            //you can make a key per project on google
-                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key2}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
+                        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=${key4}&type=video&q=${document.getElementById('searchbox').value +" audiobook"}`, {}).
                         then((res)=>{
                             this.setState({searchResults:res.data.items});
                             console.log(this.state.searchResults[0]);
@@ -98,6 +98,14 @@ class YoutubeAudio extends React.Component {
                    <hr/> 
 
                    <Switch>
+                   <Route exact path="/playfield"> 
+                              
+                               
+                                  <h5 align="center" style={{backgroundColor:'white', color:'rgb(49, 116, 240)', paddingTop:'100px'}}>
+                                  Search for the audiobook you want to listen to
+                                      </h5>  
+                                
+                    </Route>
                        <Route path="/playfield/readroom">
                            <ReadRoom title={"vf"} cover={"ff"} id={"re"}/>
                        </Route>
@@ -105,7 +113,7 @@ class YoutubeAudio extends React.Component {
                 
                        {
                             this.state.showResults == true ? 
-                            <div id="searchhead" align="center" className="container">Showing results for <span style={{backgroundColor:'rgb(52, 201, 52)', padding:'5px'}}>{this.state.currentQuery}</span><hr/><br/></div>:<div></div>
+                            <div id="searchhead" align="center" className="container">Showing results for <span style={{backgroundColor:'rgb(49, 116, 240)', color:'white', padding:'5px'}}>{this.state.currentQuery}</span><hr/><br/></div>:<div></div>
                         }
                   
                         {
